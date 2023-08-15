@@ -1,4 +1,4 @@
-# 基于xfgryujk/blivedm给某~~剑盾小B~~剑盾小子的直播间点歌机。
+# 基于xfgryujk/blivedm的直播间点歌机。
 
 本项目fork自xfgryujk，在其基础上增加了一条筛选语句。
 
