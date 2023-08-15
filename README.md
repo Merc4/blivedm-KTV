@@ -1,4 +1,5 @@
-# blivedm
+# 基于xfgryujk/blivedm给某剑盾小子的直播间点歌机。
+
 本项目fork自xfgryujk，在其基础上增加了一条筛选语句。
 
 ```python
