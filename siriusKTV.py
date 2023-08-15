@@ -6,11 +6,7 @@ import blivedm
 
 # 直播间ID的取值看直播间URL
 TEST_ROOM_IDS = [
-    12235923,
-    14327465,
-    21396545,
-    21449083,
-    23105590,
+    2171056,
 ]
 
 
@@ -70,21 +66,37 @@ class MyHandler(blivedm.BaseHandler):
     #           f" uname={command['data']['uname']}")
     # _CMD_CALLBACK_DICT['INTERACT_WORD'] = __interact_word_callback  # noqa
 
-    async def _on_heartbeat(self, client: blivedm.BLiveClient, message: blivedm.HeartbeatMessage):
-        print(f'[{client.room_id}] 当前人气值：{message.popularity}')
 
+    # 当前人气值
+    # async def _on_heartbeat(self, client: blivedm.BLiveClient, message: blivedm.HeartbeatMessage):
+    #     print(f'[{client.room_id}] 当前人气值：{message.popularity}')
+
+    # # 无筛选地Print所有弹幕
+    # async def _on_danmaku(self, client: blivedm.BLiveClient, message: blivedm.DanmakuMessage):
+    #    print(f'[{client.room_id}] {message.uname}：{message.msg}')
+
+
+
+    # # 仅Print带有‘点歌’字样的弹幕
     async def _on_danmaku(self, client: blivedm.BLiveClient, message: blivedm.DanmakuMessage):
-        print(f'[{client.room_id}] {message.uname}：{message.msg}')
+     if "点歌" in message.msg:
+        print(f'{message.uname}：{message.msg}')
 
-    async def _on_gift(self, client: blivedm.BLiveClient, message: blivedm.GiftMessage):
-        print(f'[{client.room_id}] {message.uname} 赠送{message.gift_name}x{message.num}'
-              f' （{message.coin_type}瓜子x{message.total_coin}）')
 
-    async def _on_buy_guard(self, client: blivedm.BLiveClient, message: blivedm.GuardBuyMessage):
-        print(f'[{client.room_id}] {message.username} 购买{message.gift_name}')
+    # 打赏礼物信息：瓜子
+    # async def _on_gift(self, client: blivedm.BLiveClient, message: blivedm.GiftMessage):
+    #     print(f'[{client.room_id}] {message.uname} 赠送{message.gift_name}x{message.num}'
+    #           f' （{message.coin_type}瓜子x{message.total_coin}）')
 
-    async def _on_super_chat(self, client: blivedm.BLiveClient, message: blivedm.SuperChatMessage):
-        print(f'[{client.room_id}] 醒目留言 ¥{message.price} {message.uname}：{message.message}')
+
+    # 打赏礼物信息：具体礼物
+    # async def _on_buy_guard(self, client: blivedm.BLiveClient, message: blivedm.GuardBuyMessage):
+    #     print(f'[{client.room_id}] {message.username} 购买{message.gift_name}')
+
+
+    # 醒目留言
+    # async def _on_super_chat(self, client: blivedm.BLiveClient, message: blivedm.SuperChatMessage):
+    #     print(f'[{client.room_id}] 醒目留言 ¥{message.price} {message.uname}：{message.message}')
 
 
 if __name__ == '__main__':
