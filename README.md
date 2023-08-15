@@ -1,4 +1,4 @@
-# 基于xfgryujk/blivedm给某剑盾小子的直播间点歌机。
+# 基于xfgryujk/blivedm给某~~剑盾小B~~剑盾小子的直播间点歌机。
 
 本项目fork自xfgryujk，在其基础上增加了一条筛选语句。
 
@@ -27,4 +27,7 @@ Python获取bilibili直播弹幕的库，使用WebSocket协议
     pip install -r requirements.txt
     ```
 
-
+3. 打开点歌机
+    ```sh
+    python ~/blivedm-KTV/siriusKTV.py
+    ```
